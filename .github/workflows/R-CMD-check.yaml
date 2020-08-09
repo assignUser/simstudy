@@ -67,12 +67,9 @@ jobs:
         run: |
           remotes::install_deps(dependencies = TRUE)
           remotes::install_cran("rcmdcheck")
-          find.package("stringi")
+          install.package("stringi")
         shell: Rscript {0}
 
-      - name: check stringi folder
-        run: |
-          ls -l /home/runner/work/_temp/Library/stringi/libs
 
       - name: Check
         env:

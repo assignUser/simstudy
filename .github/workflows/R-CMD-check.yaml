@@ -67,7 +67,7 @@ jobs:
         run: |
           remotes::install_deps(dependencies = TRUE)
           remotes::install_cran("rcmdcheck")
-          grep("stringi",installed.packages())
+          find.package("stringi")
         shell: Rscript {0}
 
       - name: Check

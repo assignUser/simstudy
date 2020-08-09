@@ -72,8 +72,8 @@ jobs:
 
       - name: check stringi folder
         run: |
-          ls /home/runner/work/_temp/Library/stringi
-          ls /home/runner/work/_temp/Library/stringi/libs
+          ls -l /home/runner/work/_temp/Library/stringi/libs
+
       - name: Check
         env:
           _R_CHECK_CRAN_INCOMING_REMOTE_: false

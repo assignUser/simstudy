@@ -25,7 +25,7 @@ jobs:
          # - {os: macOS-latest, r: 'release'}
          # - {os: macOS-latest, r: 'oldrel'}
           - {os: ubuntu-20.04, r: 'release', rspm: "https://packagemanager.rstudio.com/cran/__linux__/focal/latest"}    
-          - {os: ubuntu-18.04, r: 'release', rspm: "https://packagemanager.rstudio.com/cran/__linux__/bionic/latest"}
+          #- {os: ubuntu-18.04, r: 'release', rspm: "https://packagemanager.rstudio.com/cran/__linux__/bionic/latest"}
           - {os: ubuntu-18.04, r: 'release'}
     env:
       R_REMOTES_NO_ERRORS_FROM_WARNINGS: true
@@ -70,6 +70,10 @@ jobs:
           find.package("stringi")
         shell: Rscript {0}
 
+      - name: check stringi folder
+        run: |
+          ls /home/runner/work/_temp/Library/stringi
+          ls /home/runner/work/_temp/Library/stringi/libs
       - name: Check
         env:
           _R_CHECK_CRAN_INCOMING_REMOTE_: false

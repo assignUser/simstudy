@@ -64,3 +64,4 @@ jobs:
         if: github.event.inputs.email == ''
         run: rhub::check(platform = c(${{ github.event.inputs.platforms }}))
         shell: Rscript {0}
+        

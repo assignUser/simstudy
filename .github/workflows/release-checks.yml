@@ -9,7 +9,7 @@ on:
       email:
         description: email (Optional)   
         required: false
-      email:
+      token:
         description: email validation token    
         required: false
       platforms:

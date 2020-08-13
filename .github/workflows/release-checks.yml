@@ -52,7 +52,7 @@ jobs:
       - name: Install dependencies
         run: |
           remotes::install_deps(dependencies = TRUE)
-          install.packages("pkgdown")
+          install.packages("rhub")
         shell: Rscript {0}
 
       - name: Run rhub checks (custom email)

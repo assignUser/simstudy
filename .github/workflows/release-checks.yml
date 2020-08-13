@@ -57,7 +57,7 @@ jobs:
 
       - name: Run rhub checks (custom email)
         if: github.event.inputs.email != ''
-        run: rhub::check(platform = c(${{ github.event.inputs.platforms }}), email = ${{ github.event.inputs.email }})
+        run: rhub::check(platform = ${{ github.event.inputs.platforms }}, email = ${{ github.event.inputs.email }})
         shell: Rscript {0}
       
       - name: Run rhub checks (maintainer)

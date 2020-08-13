@@ -61,11 +61,12 @@ jobs:
       - name: Run rhub checks (custom email)
         if: github.event.inputs.email != ''
         run: |
-        rhub::validate_email(email = ${{ github.event.inputs.email }}, token = ${{ github.event.inputs.token }})
-        rhub::check(platform = ${{ github.event.inputs.platforms }}, email = ${{ github.event.inputs.email }})
+          rhub::validate_email(email = ${{ github.event.inputs.email }}, token = ${{ github.event.inputs.token }})
+          rhub::check(platform = ${{ github.event.inputs.platforms }}, email = ${{ github.event.inputs.email }})
         shell: Rscript {0}
       
       - name: Run rhub checks (maintainer)
         if: github.event.inputs.email == ''
-        run: rhub::check(platform = ${{ github.event.inputs.platforms }})
+        run: |
+         rhub::validate_email(email = ${{ github.event.inputs.email }}, token = ${{ github.event.inputs.token }})rhub::check(platform = ${{ github.event.inputs.platforms }})
         shell: Rscript {0}

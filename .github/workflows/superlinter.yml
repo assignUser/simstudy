@@ -45,9 +45,8 @@ jobs:
       # Run Linter against code base #
       ################################
       - name: Lint Code Base
-        uses: assignUser/super-linter@master
+        uses: assignUser/super-linter@0933aeb
         env:
-          VALIDATE_ALL_CODEBASE: true
-          VALIDATE_R: true
+          VALIDATE_ALL_CODEBASE: false
           DEFAULT_BRANCH: master
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

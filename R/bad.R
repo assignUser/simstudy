@@ -1,5 +1,4 @@
 # Each of the default linters should throw at least one lint on this file
-#
 
 # assignment
 # function_left_parentheses

@@ -1,2 +1,2 @@
 linters: with_defaults(object_usage_linter = NULL)
-exclusions: list("/tmp/lint/R/bad.R")
+exclusions: list("/github/workspace/R/bad.R")

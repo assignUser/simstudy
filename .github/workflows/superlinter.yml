@@ -45,7 +45,7 @@ jobs:
       # Run Linter against code base #
       ################################
       - name: Lint Code Base
-        uses: docker://assignuser/super-linter:latest
+        uses: docker://assignuser/super-linter
         env:
           VALIDATE_ALL_CODEBASE: false
           VALIDATE_R: true

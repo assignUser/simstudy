@@ -1,2 +1,0 @@
-linters: with_defaults(object_usage_linter = NULL)
-exclusions: list("/github/workspace/R/bad.R")

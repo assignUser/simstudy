@@ -1,27 +1,27 @@
+name: lint-manual
+
 on:
     workflow_dispatch:
       inputs:
         git-ref:
           description: Git Ref (Optional)    
           required: false 
+ 
+jobs:
+  lint:
+    runs-on: macOS-latest
+    env:
+      GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - name: Clone Repository (Latest)
+          uses: actions/checkout@v2
+          if: github.event.inputs.git-ref == ''
 
-  name: lint-manual
-  
-  jobs:
-    lint:
-      runs-on: macOS-latest
-      env:
-        GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
-      steps:
-        - name: Clone Repository (Latest)
-            uses: actions/checkout@v2
-            if: github.event.inputs.git-ref == ''
-
-        - name: Clone Repository (Custom Ref)
-            uses: actions/checkout@v2
-            if: github.event.inputs.git-ref != ''
-            with:
-            ref: ${{ github.event.inputs.git-ref }}
+      - name: Clone Repository (Custom Ref)
+          uses: actions/checkout@v2
+          if: github.event.inputs.git-ref != ''
+          with:
+          ref: ${{ github.event.inputs.git-ref }}
             
         - uses: actions/checkout@v2
   
@@ -50,7 +50,7 @@ on:
         
         - name: Use problem-matcher
           run: echo "::add-matcher::lintr.json"
-          
+
         - name: Lint
           run: lintr::lint_package()
           shell: Rscript {0}

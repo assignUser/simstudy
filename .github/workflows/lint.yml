@@ -1,4 +1,4 @@
-name: lint-manual
+name: lint-dev
 
 # on:
 #     workflow_dispatch:

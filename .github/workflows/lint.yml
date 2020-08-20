@@ -39,4 +39,4 @@ jobs:
         uses: docker://assignuser/lintr-lib:latest
         with:
           entrypoint: /usr/bin/R
-          args: -e "lintr::lint_package()"
+          args: --slave -e "err <- lintr::lint_package(); print(err); quit(save = 'no', status = if (length(err) > 0) 1 else 0)"
